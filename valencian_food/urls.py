@@ -21,4 +21,5 @@ from reservations import views #import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home') #route for homepage
+    path('book_table/', views.book_table, name='book_table') #route for booking page
 ]
