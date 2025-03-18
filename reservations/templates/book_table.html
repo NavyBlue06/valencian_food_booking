@@ -10,7 +10,9 @@
     <div class="container mt-5">
         <h2 class="text-center">Book a Table 🍽️</h2>
         <form method="POST" class="mt-4">
+            <!-- Include the CSRF (cross-site request forgery) token -->
             {% csrf_token %}
+            <!-- Display the form fields -->
             {{ form.as_p }}
             <button type="submit" class="btn btn-danger">Reserve</button>
         </form>
