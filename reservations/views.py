@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages  # import messages
-from .forms import ReservationForm
+from reservations.forms import ReservationForm
 
 # Create your views here.
 
