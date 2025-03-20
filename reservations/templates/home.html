@@ -25,6 +25,17 @@
         </div>
     </nav>
 
+    <!-- Display booking success maesage-->
+    {% if messages %}
+        <div class="container mt-3">
+            {% for message in messages %}
+             <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+                {{ message }}
+            {% endfor %}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+
     <!-- Hero Section -->
     <header class="text-center text-white bg-warning p-5">
         <h1>Welcome to the Valencian Food Restaurant So.Karat 🍊</h1>
