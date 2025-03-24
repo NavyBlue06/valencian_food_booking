@@ -1,9 +1,11 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valencian Food Restaurant</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
@@ -18,7 +20,7 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Menu</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Book a Table</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'book_table' %}">Book a Table</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
                 </ul>
             </div>
@@ -37,8 +39,8 @@
     {% endif %}
 
     <!-- Hero Section -->
-    <header class="text-center text-white bg-warning p-5">
-        <h1>Welcome to the Valencian Food Restaurant So.Karat 🍊</h1>
+    <header class="hero">
+        <h1>Welcome to So.Karat 🍊</h1>
         <p class="lead">Experience the authentic taste of Valencia!</p>
         <a href="{% url 'book_table'%}" class="btn btn-dark btn-lg mt-3">Book a Table</a>
     </header>
@@ -79,7 +81,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="text-center text-white bg-dark py-3">
+    <footer class="footer">
         <p>📍 Located in Valencia, Spain | ☎️ Contact: +34 123 456 789</p>
     </footer>
 
