@@ -39,7 +39,7 @@ DEBUG = config ('DEBUG', default=False, cast=bool)
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    '.herokuapp.com',
+    'valencian-food-app.herokuapp.com',
 ]
 
 
