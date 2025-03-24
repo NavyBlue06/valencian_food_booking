@@ -1,1 +1,1 @@
-web: gunicorn valencian_food_booking.wsgi
+web: gunicorn valencian_food.wsgi
