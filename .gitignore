@@ -10,3 +10,4 @@ __pycache__/
 
 # SQLite database (if you use it)
 db.sqlite3
+valencian_food/__pycache__/urls.cpython-312.pyc
