@@ -70,7 +70,7 @@ ROOT_URLCONF = 'valencian_food.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'reservations', 'templates')],  # Add templates directory
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
