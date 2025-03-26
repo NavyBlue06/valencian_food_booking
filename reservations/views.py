@@ -33,9 +33,9 @@ def edit_booking(request, booking_id):
 
      if request.method == 'POST':
          form = BookingForm(request.POST, instance=booking)
-            if form.is_valid():
-                form.save()
-                return redirect('my_bookings')
+         if form.is_valid():
+             form.save()
+             return redirect('my_bookings')
      else:
-         form =bookingForm(instance=booking)
-         return render ( request, 'reservations/templates/edit_booking.html', {'form':form})
+        form = BookingForm(instance=booking)
+        return render(request, 'reservations/templates/edit_booking.html', {'form': form})
