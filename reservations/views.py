@@ -4,7 +4,7 @@ from reservations.forms import ReservationForm
 from django.contrib.auth.decorators import login_required
 from .models import Booking
 from .forms import BookingForm
-from django.contrib.auth.models import login_required
+
 # Create your views here.
 
 
@@ -38,4 +38,4 @@ def edit_booking(request, booking_id):
              return redirect('my_bookings')
      else:
         form = BookingForm(instance=booking)
-        return render(request, 'reservations/templates/edit_booking.html', {'form': form})
+        return render(request, 'edit_booking.html', {'form': form})
