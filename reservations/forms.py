@@ -1,5 +1,6 @@
 from django import forms
 from reservations.models import Reservation
+from .models import Booking
 
 
 class ReservationForm(forms.ModelForm):
@@ -19,3 +20,10 @@ class ReservationForm(forms.ModelForm):
             'time': forms.TimeInput(attrs={'type': 'time'}),
             
         }
+class BookingForm(forms.ModelForm):
+    class Meta:
+        model = Booking
+        fields = ['date', 'time' , 'guests']
+        
+            
+      
