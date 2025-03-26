@@ -23,7 +23,7 @@ class ReservationForm(forms.ModelForm):
 class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
-        fields = ['date', 'time' , 'guests']
+        fields = ['date', 'time']
         
             
       
