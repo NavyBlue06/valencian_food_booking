@@ -27,6 +27,6 @@ urlpatterns = [
         name='book_table'  # route for booking page
     ),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('my_bookings/', views.my_bookings, name='my_bookings'),
+    path('my_booking/', views.my_bookings, name='my_bookings'),
     path('edit_booking/<int:booking_id>/', views.edit_booking, name='edit_booking'),
 ]
