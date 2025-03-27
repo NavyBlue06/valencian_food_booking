@@ -19,7 +19,7 @@
                 <span>
                     Date: {{ booking.date }}<br>
                     Time: {{ booking.time }}<br>
-                    Guests: {{ booking.guests }}<br> 
+                    Guests: {{ booking.guests }}<br>
                 </span>
                 <a href="{% url 'edit_booking' booking.id}" class="btn btn-sm btn-warning">Edit</a>
                 <a href="{% url 'cancel_booking' booking.id %}" class="btn btn-danger">Cancel</a>
