@@ -18,6 +18,7 @@ class Booking (models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     date = models.DateField()
     time = models.IntegerField() 
+    guests = models.PositiveBigIntegerField(default=1)
 
     def __str__(self):
         return f"{self.user.username}'s booking on {self.date} at {self.time}"
