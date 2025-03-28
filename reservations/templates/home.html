@@ -31,11 +31,18 @@
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                     {% if user.is_authenticated %}
                     <li class="nav-item"><a class="nav-link" href="{% url 'my_booking' %}">My Booking</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+                    <li class="nav-item">
+                        <form method="post" action="{% url 'logout' %}" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-link nav-link"
+                                style="padding: 0; border: none;">Logout</button>
+                        </form>
+                    </li>
                     {% else %}
                     <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
                     {% endif %}
+
 
                 </ul>
             </div>
@@ -62,7 +69,8 @@
         </header>
         {% if not user.is_authenticated %}
         <div class="text-center mt-3">
-            <a href="{% url 'register' %}" class="btn btn-outline-danger btn-lg">Create an Account to Book a <Table></Table>able</a>
+            <a href="{% url 'register' %}" class="btn btn-outline-danger btn-lg">Create an Account to Book a <Table>
+                </Table>able</a>
         </div>
         {% endif %}
 
