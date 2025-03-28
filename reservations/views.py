@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Booking
 from .forms import ReservationForm, BookingForm  # Cleaner import
-from django.contrib.auth.forms import UserCreationForm
+from .forms import CustomerUserCreationForm
 
 
 # Home page
@@ -33,12 +33,12 @@ def my_booking(request):
 #Register view
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CustomerUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
             return redirect('home')
     else:
-        form = UserCreationForm()
+        form = CustomerUserCreationForm()
     return render(request, 'register.html', {'form': form})
 
 # feedback Rory list bookings(requires login)
