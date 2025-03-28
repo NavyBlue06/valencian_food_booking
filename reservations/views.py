@@ -3,11 +3,12 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Booking
 from .forms import ReservationForm, BookingForm  # Cleaner import
+from django.contrib.auth.forms import UserCreationForm
 
 
 # Home page
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'reservations/home.html')
 
 
 # Booking form view
@@ -20,14 +21,14 @@ def book_table(request):
             return redirect('home')
     else:
         form = ReservationForm()
-    return render(request, 'book_table.html', {'form': form})
+    return render(request, 'reservations/book_table.html', {'form': form})
 
 
 # List bookings (requires login)
 @login_required
 def my_booking(request):
     bookings = Booking.objects.filter(user=request.user)
-    return render(request, 'my_booking.html', {'bookings': bookings})  #  Make sure template is named exactly like this!
+    return render(request, 'reservations/my_booking.html', {'bookings': bookings})  #  Make sure template is named exactly like this!
 
 #Register view
 def register(request):
@@ -38,7 +39,7 @@ def register(request):
             return redirect('home')
     else:
         form = UserCreationForm()
-    return render(request, 'register.html', {'form': form})
+    return render(request, 'reservations/register.html', {'form': form})
 
 # Edit a booking (requires login)
 @login_required
@@ -53,4 +54,4 @@ def edit_booking(request, booking_id):
     else:
         form = BookingForm(instance=booking)
 
-    return render(request, 'edit_booking.html', {'form': form})  #  Always render — even after invalid POST
+    return render(request, 'reservations/edit_booking.html', {'form': form})  #  Always render — even after invalid POST
