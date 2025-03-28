@@ -41,6 +41,12 @@ def register(request):
         form = UserCreationForm()
     return render(request, 'reservations/register.html', {'form': form})
 
+# feedback Rory list bookings(requires login)
+@login_required
+def my_booking(request):
+    bookings = Booking.objects.filter(user=request.user)
+    return render(request, 'reservations/my_booking.html', {'bookings': bookings})
+
 # Edit a booking (requires login)
 @login_required
 def edit_booking(request, booking_id):
