@@ -29,6 +29,16 @@ def my_booking(request):
     bookings = Booking.objects.filter(user=request.user)
     return render(request, 'my_booking.html', {'bookings': bookings})  #  Make sure template is named exactly like this!
 
+#Register view
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            return redirect('home')
+    else:
+        form = UserCreationForm()
+    return render(request, 'register.html', {'form': form})
 
 # Edit a booking (requires login)
 @login_required
