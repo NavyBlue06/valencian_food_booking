@@ -73,6 +73,11 @@
                 </Table>able</a>
         </div>
         {% endif %}
+        {% if user.is_authenticated %}
+        <p class="text-center text-muted mt-2">Logged in as: {{ user.username }}</p>
+        {% endif %}
+
+
 
 
         <!-- Menu Section -->
