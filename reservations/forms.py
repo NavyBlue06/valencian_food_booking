@@ -35,11 +35,9 @@ class CustomerUserCreationForm(UserCreationForm):
         model = User
         fields = ['username', 'email', 'password1', 'password2']
 
-# test this, found in Django docs for UserCreationForm
-
-def __init__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         # Call Django's original form setup so everything works as expected
-        super(CustomUserCreationForm, self).__init__(*args, **kwargs)
+        super(CustomerUserCreationForm, self).__init__(*args, **kwargs)
 
         # Add Bootstrap styling + placeholder text to the username field
         self.fields['username'].widget.attrs.update({
