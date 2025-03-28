@@ -24,9 +24,15 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'book_table' %}">Book a Table</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'my_booking' %}">My Booking</a></li>
+                    {% else %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
