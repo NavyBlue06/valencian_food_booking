@@ -8,56 +8,55 @@ from .forms import CustomerUserCreationForm
 
 # Home page
 def home(request):
-    return render(request, 'home.html')
+    return render(request, "home.html")
 
 
 # Booking form view
 def book_table(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         form = ReservationForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Your reservation has been made!')
-            return redirect('home')
+            messages.success(request, "Your reservation has been made!")
+            return redirect("home")
     else:
         form = ReservationForm()
-    return render(request, 'book_table.html', {'form': form})
+    return render(request, "book_table.html", {"form": form})
 
 
-# List bookings (requires login)
-@login_required
-def my_booking(request):
-    bookings = Booking.objects.filter(user=request.user)
-    return render(request, 'my_booking.html', {'bookings': bookings})  #  Make sure template is named exactly like this!
-
-#Register view
+# Register view
 def register(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         form = CustomerUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            return redirect('home')
+            return redirect("home")
     else:
         form = CustomerUserCreationForm()
-    return render(request, 'register.html', {'form': form})
+    return render(request, "register.html", {"form": form})
+
 
 # feedback Rory list bookings(requires login)
 @login_required
 def my_booking(request):
     bookings = Booking.objects.filter(user=request.user)
-    return render(request, 'my_booking.html', {'bookings': bookings})
+    return render(request, "my_booking.html", {"bookings": bookings})
+
 
 # Edit a booking (requires login)
 @login_required
 def edit_booking(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id, user=request.user)
 
-    if request.method == 'POST':
+    if request.method == "POST":
         form = BookingForm(request.POST, instance=booking)
         if form.is_valid():
             form.save()
-            return redirect('my_booking')
+            return redirect("my_booking")
     else:
         form = BookingForm(instance=booking)
 
-    return render(request, 'edit_booking.html', {'form': form})  #  Always render — even after invalid POST
+    return render(request, "edit_booking.html", {"form": form})
+
+
+#  Always render — even after invalid POST

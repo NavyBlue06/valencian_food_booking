@@ -14,24 +14,27 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path, include
 from reservations import views
 from django.contrib.auth import views as auth_views
 
+
 urlpatterns = [
-    path('admin/', admin.site.urls),  # staff/admin
-    path('', views.home, name='home'),  
-    path('book_table/', views.book_table, name='book_table'),
-    path('my_booking/', views.my_booking, name='my_booking'),
-    path('edit_booking/<int:booking_id>/', views.edit_booking, name='edit_booking'),
-
+    path("admin/", admin.site.urls),  # staff/admin
+    path("", views.home, name="home"),
+    path("book_table/", views.book_table, name="book_table"),
+    path("my_booking/", views.my_booking, name="my_booking"),
+    path("edit_booking/<int:booking_id>/", views.edit_booking, name="edit_booking"),
     # Custom auth for guests
-    path('login/', auth_views.LoginView.as_view(template_name='reservations/login.html'), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(next_page='home'), name='logout'),
-    path('register/', views.register, name='register'),
-
+    path(
+        "login/",
+        auth_views.LoginView.as_view(template_name="reservations/login.html"),
+        name="login",
+    ),
+    path("logout/", auth_views.LogoutView.as_view(next_page="home"), name="logout"),
+    path("register/", views.register, name="register"),
     # Extra built-in auth routes (optional but safe to keep)
-    path('accounts/', include('django.contrib.auth.urls')),
+    path("accounts/", include("django.contrib.auth.urls")),
 ]
-
